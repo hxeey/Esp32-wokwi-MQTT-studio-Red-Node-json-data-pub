@@ -1,0 +1,310 @@
+[
+    {
+        "id": "a5df2019b5fc2a52",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "07dd9e31877df6bb",
+        "type": "mqtt in",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "topic": "ruqaya/sensors/env",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f587c24731dfd88e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "8d7c6e20f592a2c2"
+            ]
+        ]
+    },
+    {
+        "id": "8d7c6e20f592a2c2",
+        "type": "json",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "0e172e2c44d33e1c",
+                "a4ba7ec6eba3f8c2",
+                "22ac0f52bbdacf2e",
+                "84630dea181c87f2",
+                "d18f1302ceb7736c"
+            ]
+        ]
+    },
+    {
+        "id": "25a0dd504c8830bb",
+        "type": "ui_gauge",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "group": "0b4d528a05b807fd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "temp",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1050,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0e172e2c44d33e1c",
+        "type": "function",
+        "z": "a5df2019b5fc2a52",
+        "name": "temp",
+        "func": "let obj = JSON.parse(msg.payload); \nmsg.payload = obj.temp;            \nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 160,
+        "wires": [
+            [
+                "25a0dd504c8830bb"
+            ]
+        ]
+    },
+    {
+        "id": "a4ba7ec6eba3f8c2",
+        "type": "function",
+        "z": "a5df2019b5fc2a52",
+        "name": "humidity",
+        "func": "let obj = JSON.parse(msg.payload); \nmsg.payload = obj.temp;            \nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 200,
+        "wires": [
+            [
+                "eaeb38e19bed67c5"
+            ]
+        ]
+    },
+    {
+        "id": "22ac0f52bbdacf2e",
+        "type": "function",
+        "z": "a5df2019b5fc2a52",
+        "name": "light",
+        "func": "let obj = JSON.parse(msg.payload); \nmsg.payload = obj.temp;            \nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 240,
+        "wires": [
+            [
+                "7d7da3a99f60acfc"
+            ]
+        ]
+    },
+    {
+        "id": "84630dea181c87f2",
+        "type": "function",
+        "z": "a5df2019b5fc2a52",
+        "name": "pot",
+        "func": "let obj = JSON.parse(msg.payload); \nmsg.payload = obj.temp;            \nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "ce2be6f6e9daedeb"
+            ]
+        ]
+    },
+    {
+        "id": "7d7da3a99f60acfc",
+        "type": "ui_gauge",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "group": "0b4d528a05b807fd",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "light",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1050,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d18f1302ceb7736c",
+        "type": "debug",
+        "z": "a5df2019b5fc2a52",
+        "name": "readings",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "eaeb38e19bed67c5",
+        "type": "ui_gauge",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "group": "0b4d528a05b807fd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1080,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ce2be6f6e9daedeb",
+        "type": "ui_gauge",
+        "z": "a5df2019b5fc2a52",
+        "name": "",
+        "group": "0b4d528a05b807fd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "potentiometer",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4050",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1080,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f587c24731dfd88e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b4d528a05b807fd",
+        "type": "ui_group",
+        "name": "sensors",
+        "tab": "38803d4756e6ddee",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "38803d4756e6ddee",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

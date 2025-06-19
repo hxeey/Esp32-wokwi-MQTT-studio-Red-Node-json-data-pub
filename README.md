@@ -6,4 +6,6 @@ ESP32 (Wokwi) + MQTT Studio + Node-RED A quick IoT demo project using an ESP32 s
 
   <img width="905" alt="6h" src="https://github.com/user-attachments/assets/7820b3de-1f60-4c7f-80fc-39c3e6e8ba9b" />
   <img width="914" alt="rt" src="https://github.com/user-attachments/assets/7498ee3c-8148-4285-9e6f-694e71d5c7a7" />
+  <img width="903" alt="rt" src="https://github.com/user-attachments/assets/3cab5a24-7fb5-49a8-9d05-9dbe38154e92" />
+
 

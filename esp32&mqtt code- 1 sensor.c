@@ -29,18 +29,18 @@ void setup_wifi() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\n✅ WiFi connected");
+  Serial.println("\n WiFi connected");
 }
 
 void reconnect() {
   while (!client.connected()) {
     Serial.print("🔁 Connecting to MQTT...");
     if (client.connect(mqttClientId)) {
-      Serial.println("✅ connected");
+      Serial.println(" connected");
 
       client.subscribe("ruqaya/sensors/temp555");
     } else {
-      Serial.print("❌ failed, rc=");
+      Serial.print(" failed, rc=");
       Serial.println(client.state());
       delay(2000);
     }
